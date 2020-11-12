@@ -22,11 +22,11 @@ public class Square extends Shape {
 
 
     public double getSurfaceArea(){
-        return getLength() * getLength();
+        return Math.round(getLength() * getLength());
     }
 
     public double getPerimeter(){
-        return (getLength() + getLength()) * 2;
+        return Math.round((getLength() + getLength()) * 2);
     }
 
     @Override

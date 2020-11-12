@@ -30,11 +30,11 @@ public class Rectangle extends Shape {
     }
 
     public double getSurfaceArea(){
-        return getWidth() * getLength();
+        return Math.round(getWidth() * getLength());
     }
 
     public double getPerimeter(){
-        return (getWidth() + getLength()) * 2;
+        return Math.round((getWidth() + getLength()) * 2);
     }
 
     @Override

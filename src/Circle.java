@@ -19,7 +19,7 @@ public class Circle extends Shape {
     }
 
     public double getSurfaceArea(){
-        return 3.14 * getRadius() * getRadius();
+        return Math.round(3.14 * getRadius() * getRadius());
     }
 
     public double getPerimeter() {

@@ -7,55 +7,17 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-
-
-//        ArrayList<Shape> shapes = initialiseExamples();
-//        sortByArea(shapes);
-//        sortByPerimeter(shapes);
-//        printAllShapes(shapes);
-//
-//        System.out.println("Add Circle Test");
-//
-//        addCircle(shapes);
-//        printAllShapes(shapes);
-
-
-     //   List<Shape> shapes = initialiseExamples();
-       // System.out.println(shapes);
-        //removeByName(shapes);
-       //addRectangle(shapes);
-        //System.out.println(shapes);
-
-     //   System.out.println(shapes);
-//        for(Shape s : shapes){
-//            System.out.println("Name: " + s.getName() + " Perimeter: " + s.getPerimeter() + " Surface Area: " + s.getSurfaceArea());
-//        }
-
-
-//        Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
-//        //Shape s = new Shape();
-//        try(FileWriter writer = new FileWriter("Shape.json")){
-//            gson.toJson(shapes, writer);
-//        } catch (IOException e){
-//            e.printStackTrace();
-//        }
-
-        //System.out.println(new Gson().toJson(shapes));
-//
-            menu();
-
-
-
-
-    }
-
-    public static void menu(){
-
         ArrayList<Shape> shapes = new ArrayList<Shape>();
         shapes.add(new Circle("C1", 5));
         shapes.add(new Triangle("T2", 5, 3, 4, 6));
         shapes.add(new Square("S3", 5));
         shapes.add(new Rectangle("R4", 5, 10));
+
+        menu(shapes);
+
+    }
+
+    public static void menu(ArrayList<Shape> shapes){
 
         Scanner kb = new Scanner(System.in);
         System.out.println("****Shape Application****");
@@ -92,12 +54,13 @@ public class Main {
                 break;
             case 9:
                 System.out.println("Print to JSON....");
+                writeToJson(shapes);
                 break;
             case 10:
                 break;
             default:
                 System.out.println("Please enter a valid choice!");
-                menu();
+                menu(shapes);
         }
 
 
@@ -116,22 +79,24 @@ public class Main {
     }
 
     public static void printAllShapes(ArrayList<Shape> shapes){
+        System.out.println();
         for(int i = 0; i < shapes.size(); i++){
             System.out.println(shapes.get(i));
+
         }
-        menu();
+        menu(shapes);
     }
 
     public static void sortByArea(ArrayList<Shape> shapes){
         shapes.sort(new SortArea());
         printAllShapes(shapes);
-        menu();
+        menu(shapes);
     }
 
     public static void sortByPerimeter(ArrayList<Shape> shapes){
         shapes.sort(new SortPerimeter());
         printAllShapes(shapes);
-        menu();
+        menu(shapes);
     }
 
     public static void addCircle(ArrayList<Shape> shapes){
@@ -143,7 +108,7 @@ public class Main {
         shapes.add(new Circle(name, radius));
 
         printAllShapes(shapes);
-        menu();
+        menu(shapes);
     }
 
 
@@ -162,7 +127,7 @@ public class Main {
         shapes.add(new Triangle(name, height, base, a, b));
 
         printAllShapes(shapes);
-        menu();
+        menu(shapes);
     }
 
     public static void addSquare(ArrayList<Shape> shapes){
@@ -174,7 +139,7 @@ public class Main {
         shapes.add(new Square(name, length));
 
         printAllShapes(shapes);
-        menu();
+        menu(shapes);
     }
 
     public static void addRectangle(ArrayList<Shape> shapes){
@@ -196,7 +161,7 @@ public class Main {
 
 
         printAllShapes(shapes);
-        menu();
+        menu(shapes);
     }
 
     public static void removeByName(ArrayList<Shape> shapes){
@@ -212,7 +177,18 @@ public class Main {
         }
 
         printAllShapes(shapes);
-        menu();
+        menu(shapes);
+    }
+
+    public static void writeToJson(ArrayList<Shape> shapes){
+        Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
+        try(FileWriter writer = new FileWriter("Shape.json")){
+            gson.toJson(shapes.toString(), writer);
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+
+        menu(shapes);
     }
 
 

@@ -49,11 +49,11 @@ public class Triangle extends Shape {
     }
 
     public double getSurfaceArea(){
-        return (getHeight() * getBase()) / 2;
+        return Math.round((getHeight() * getBase()) / 2);
     }
 
     public double getPerimeter(){
-        return a + b + getBase();
+        return Math.round(a + b + getBase());
     }
 
     @Override
