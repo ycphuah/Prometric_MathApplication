@@ -1,0 +1,30 @@
+[
+  {
+    "radius": 5.0,
+    "name": "C1",
+    "perimeter": 0.0,
+    "surfaceArea": 0.0
+  },
+  {
+    "height": 5.0,
+    "base": 3.0,
+    "a": 4.0,
+    "b": 6.0,
+    "name": "T2",
+    "perimeter": 0.0,
+    "surfaceArea": 0.0
+  },
+  {
+    "length": 5.0,
+    "name": "S3",
+    "perimeter": 5.0,
+    "surfaceArea": 0.0
+  },
+  {
+    "width": 5.0,
+    "length": 10.0,
+    "name": "R4",
+    "perimeter": 0.0,
+    "surfaceArea": 0.0
+  }
+]
